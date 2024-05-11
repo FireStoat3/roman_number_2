@@ -1,0 +1,51 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 8.0.332+9
+          cache: 'maven'
+      - name: Build with Maven and prepare README file
+        run: |
+          cd roman-number
+          mvn -B install --file pom.xml
+      - name: update README file (SUCCESS)
+        if: success()
+        run: |
+          echo "BUILD riuscita" > ./README.md
+          echo "<br>code coverage totale: " >> ./README.md
+          awk -F, '{ instructions += $4 + $5; covered += $5 } END { print 100 * covered / instructions, "% covered"}' ./roman-number/target/site/jacoco/jacoco.csv >> ./README.md
+          #awk analizza ogni riga del csv identificando come campo nuovo quanto letto dopo una virgola. nel csv il primo numero identifica il totale delle istruzioni, il secondo ilnumero di istruzioni effettivamente
+          #coperte: basta calcolare manualmente la percentuale. Viene eseguito solo in caso di successo perché altrimenti il report di jacoco non viene generato
+      - name: update README file (FAILURE)
+        if: failure()
+        run: echo "BUILD fallita" > ./README.md
+      - name: update README file with checkstyle result
+        if: always()
+        run: |
+          echo "<br> Risultati audit checkstyle <br>" >> ./README.md
+          cd roman-number
+          mvn checkstyle:checkstyle | sed -n '/Starting audit.../,/Audit done./p' >> ./../README.md
+      - name: update README file
+        if: always()
+        run: |
+          git config --global user.name "FireStoat3"
+          git config --global user.email "161834755+FireStoat3@users.noreply.github.com"
+          cd roman-number
+          mvn clean
+          cd ..
+          git add README.md
+          git commit -m "update README.md file with GitHub actions"
+          git pull
+          git push

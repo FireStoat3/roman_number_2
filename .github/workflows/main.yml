@@ -45,6 +45,8 @@ jobs:
           cd roman-number
           mvn clean
           cd ..
+          echo "<br> data build: " >> README.md
+          date >> README.md
           git add README.md
           git commit -m "update README.md file with GitHub actions"
           git pull

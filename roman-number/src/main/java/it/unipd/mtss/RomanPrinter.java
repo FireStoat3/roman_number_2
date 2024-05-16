@@ -19,7 +19,8 @@ public class RomanPrinter {
         String result="";
         //#=inizio riga, ?=fine riga
         HashMap<String,String> RomanToAsciiArt = new HashMap<String,String>();
-        RomanToAsciiArt.put("I"," ____ |    | |  |  |  |  |  | |____|");    
+        RomanToAsciiArt.put("I"," ____ |    | |  |  |  |  |  | |____|");
+        RomanToAsciiArt.put("V","__      __\\ \\    / / \\ \\  / /   \\ \\/ /     \\  /       \\/    ");    
         
         int romanNumberIndex=0;
         String AsciiArtLine="";

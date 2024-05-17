@@ -21,7 +21,8 @@ public class RomanPrinter {
         HashMap<String,String> RomanToAsciiArt = new HashMap<String,String>();
         RomanToAsciiArt.put("I"," ____ |    | |  |  |  |  |  | |____|");
         RomanToAsciiArt.put("V","__      __\\ \\    / / \\ \\  / /   \\ \\/ /     \\  /       \\/    ");    
-        RomanToAsciiArt.put("X","__   __\\ \\ / / \\ V /   > <   / . \\ |_/ \\_|");   
+        RomanToAsciiArt.put("X","__   __\\ \\ / / \\ V /   > <   / . \\ |_/ \\_|");  
+        RomanToAsciiArt.put("L","  _     | |    | |    | |    | |__  |____|");
         int romanNumberIndex=0;
         String AsciiArtLine="";
         int LineLength=0; //lunghezza di una riga del carattere in AsciiArt

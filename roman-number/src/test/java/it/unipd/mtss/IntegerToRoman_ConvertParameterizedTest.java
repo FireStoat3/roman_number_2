@@ -33,7 +33,7 @@ public class IntegerToRoman_ConvertParameterizedTest{
     @Parameters
     public static Collection<Object[]> Input_Output()
     {
-        return Arrays.asList(new Object[][]{{1,"I"},{2,"II"},{3,"III"},{4,"IV"},{6,"VI"},{9,"IX"},{10,"X"},{11,"XI"},{15,"XV"},{19,"XIX"},{20,"XX"}});
+        return Arrays.asList(new Object[][]{{1,"I"},{2,"II"},{3,"III"},{4,"IV"},{6,"VI"},{9,"IX"},{10,"X"},{11,"XI"},{15,"XV"},{19,"XIX"},{20,"XX"},{27,"XXVII"},{39,"XXXIX"},{40,"XL"},{50,"L"}});
     }
     
     @Before

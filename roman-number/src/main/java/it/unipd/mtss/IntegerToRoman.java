@@ -20,8 +20,8 @@ public class IntegerToRoman{
         }
 
         String result="";
-        String roman[]={"X","IX","V","IV","I",};
-        int arabic[]={10,9,5,4,1};
+        String roman[]={"L","XL","X","IX","V","IV","I",};
+        int arabic[]={50,40,10,9,5,4,1};
         int index=0;
 
         while(number>0||index<arabic.length)

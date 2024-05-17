@@ -7,7 +7,7 @@ package it.unipd.mtss;
 
 public class RomanNumber 
 {
-    public static void main(String[] args) throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public static void main(String[] args) throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         if(args.length==0)
         {

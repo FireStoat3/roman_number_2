@@ -7,7 +7,7 @@ package it.unipd.mtss;
 
 
 public class IntegerToRoman{
-    public static String convert(int number) throws EqualsZeroException,NegativeNumberException
+    public static String convert(int number) throws EqualsZeroException,NegativeNumberException,OutOfSupportedNumberException
     {
 
         if(number==0)
@@ -18,10 +18,14 @@ public class IntegerToRoman{
         {
             throw new NegativeNumberException("negative number");
         }
+        else if(number>1000)
+        {
+            throw new OutOfSupportedNumberException("Inserted number is higher than 1000");
+        }
 
         String result="";
-        String roman[]={"D","CD","C","XC","L","XL","X","IX","V","IV","I",};
-        int arabic[]={500,400,100,90,50,40,10,9,5,4,1};
+        String roman[]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I",};
+        int arabic[]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
         int index=0;
 
         while(number>0||index<arabic.length)

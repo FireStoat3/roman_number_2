@@ -22,7 +22,7 @@ public class RomanNumber_MainTest
 
 
     @Test(expected=NoValidParamException.class)
-    public void TestMainWrongString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public void TestMainWrongString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         System.out.printf("Testing Main with a non valid string...\n");
         input[0]="Not_A_Valid_String";
@@ -30,7 +30,7 @@ public class RomanNumber_MainTest
     }
 
     @Test(expected=NoParamException.class)
-    public void TestMainEmptyString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public void TestMainEmptyString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         System.out.printf("Testing Main with null string...\n");
         String[] ZeroStringInput=new String[0];
@@ -38,7 +38,7 @@ public class RomanNumber_MainTest
     }
 
     @Test(expected=NoValidParamException.class)
-    public void TestMainSpaceOnlyString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public void TestMainSpaceOnlyString() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         System.out.printf("Testing Main with only space string...\n");
         input[0]="       ";
@@ -46,7 +46,7 @@ public class RomanNumber_MainTest
     }
 
     @Test(expected=EqualsZeroException.class)
-    public void TestZeroAsInput() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public void TestZeroAsInput() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         input[0]="0";
         System.out.printf("Testing Main with %s as input...\n",input[0]);
@@ -54,10 +54,18 @@ public class RomanNumber_MainTest
     }
 
     @Test(expected=NegativeNumberException.class)
-    public void TestNegativeNumberAsInput() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException
+    public void TestNegativeNumberAsInput() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         input[0]="-1";
         System.out.printf("Testing Main with %s as input...\n", input[0]);
+        RomanNumber.main(input);
+    }
+
+    @Test(expected = OutOfSupportedNumberException.class)
+    public void TestNotSupportedNumber() throws NoParamException, NoValidParamException, EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
+    {
+        input[0]="1001";
+        System.out.printf("Testing Main with %s as input\n", input[0]);
         RomanNumber.main(input);
     }
 }

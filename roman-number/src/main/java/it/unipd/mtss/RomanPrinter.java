@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class RomanPrinter {
 
-    public static String print(int num) throws EqualsZeroException, NegativeNumberException
+    public static String print(int num) throws EqualsZeroException, NegativeNumberException, OutOfSupportedNumberException
     {
         return printAsciiArt(IntegerToRoman.convert(num));
     }
@@ -25,6 +25,7 @@ public class RomanPrinter {
         RomanToAsciiArt.put("L","  _     | |    | |    | |    | |__  |____|");
         RomanToAsciiArt.put("C","  ____  / ___|| |    | |    | |___  \\____|");
         RomanToAsciiArt.put("D"," _____  |  __ \\ | |  | || |  | || |__| ||_____/ ");
+        RomanToAsciiArt.put("M"," __  __ |  \\/  || \\  / || |\\/| || |  | ||_|  |_|");
         int romanNumberIndex=0;
         String AsciiArtLine="";
         int LineLength=0; //lunghezza di una riga del carattere in AsciiArt

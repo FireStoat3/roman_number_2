@@ -23,6 +23,7 @@ public class RomanPrinter {
         RomanToAsciiArt.put("V","__      __\\ \\    / / \\ \\  / /   \\ \\/ /     \\  /       \\/    ");    
         RomanToAsciiArt.put("X","__   __\\ \\ / / \\ V /   > <   / . \\ |_/ \\_|");  
         RomanToAsciiArt.put("L","  _     | |    | |    | |    | |__  |____|");
+        RomanToAsciiArt.put("C","  ____  / ___|| |    | |    | |___  \\____|");
         int romanNumberIndex=0;
         String AsciiArtLine="";
         int LineLength=0; //lunghezza di una riga del carattere in AsciiArt
